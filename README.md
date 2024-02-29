@@ -9,7 +9,7 @@
 - LORA MODEL CARD : https://huggingface.co/DoHwan9672/SOLAR10.7B-Divorce-Lawyers-LLM-PEFT
 
 - 데이터셋은 "찾기쉬운 생활법령 정보 ‘이혼' 키워드 | 백문백답, 판례, 솔로몬의 재판 카테고리", "다정 법률 상담소 | 이혼 분쟁 - FAQ", 네이버 지식인 크롤링을 통하여 구축하였습니다. 
-- 데이터셋은 학습 및 연구 목적으로만 사용하였습니다.
+- 데이터셋은 학습 및 연구 목적으로만 사용하였습니다. https://huggingface.co/datasets/DoHwan9672/divorce_QA_korean
 
 ### create conda env
 
