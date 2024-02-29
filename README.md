@@ -26,7 +26,4 @@ streamlit run app.py
 http://localhost:8501 
 
 ### Example
-![Initial](https://github.com/rlaehghks5/Divorce-lawyers-LLM/assets/121927513/eb7cdf2d-331e-407a-bf84-b7d2d726101c.png)
-
-### Example
 ![Initial](https://github.com/rlaehghks5/Divorce-lawyers-LLM/assets/121927513/304bd2d7-edb0-4e3c-a6cf-0e6c5c5ff0c5.png)
