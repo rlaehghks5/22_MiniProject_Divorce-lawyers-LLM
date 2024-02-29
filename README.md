@@ -5,11 +5,14 @@
 
 ```
 conda env create -f llm.yaml
+conda activate llm
 ```
 
 ### Run Fastapi backend
 
+
 ```
+cd Divorce-lawyers-LLM
 uvicorn main:app --reload
 ```
 
