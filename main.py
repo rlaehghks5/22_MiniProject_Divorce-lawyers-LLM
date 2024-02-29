@@ -20,7 +20,7 @@ model = AutoModelForCausalLM.from_pretrained(
 )
 
 print('model_2')
-peft_model_id = '/data/ephemeral/home/llm/KULLM/SOLAR_NEW_DATASET_GYM/checkpoint-1800'
+peft_model_id = 'DoHwan9672/SOLAR10.7B-Divorce-Lawyers-LLM-PEFT'
 model = PeftModel.from_pretrained(model, peft_model_id).to('cuda', non_blocking=True)
 
 print('load done')
@@ -28,7 +28,7 @@ model.eval()
 
 pipe = pipeline("text-generation", model=model, tokenizer=tokenizer)
 
-prompter = Prompter("/data/ephemeral/home/llm/KULLM/templates/kullm")
+prompter = Prompter("./templates/kullm")
 
 def infer(instruction="", input_text=""):
     prompt = prompter.generate_prompt(instruction, input_text)
@@ -47,7 +47,7 @@ async def generate_text(request: TextRequest):
     print("request.text: ",request.text)
     input_text = request.text
 
-    result = infer(input_text=input_text)
+    result = infer(instruction=input_text)
 
     # Postprocess the output_tensor (convert numerical representation to text)
     # For example, convert token IDs back to text using tokenizer
