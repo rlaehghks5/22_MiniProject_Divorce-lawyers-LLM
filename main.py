@@ -2,11 +2,19 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 # from llm_model import SimpleLLM
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, pipeline
 from peft import get_peft_config, get_peft_model, LoraConfig, TaskType, PeftModel, PeftConfig
 from utils.prompter import Prompter
 
 app = FastAPI()
+
+
+bnb_config = BitsAndBytesConfig(
+load_in_4bit=True,
+bnb_4bit_use_double_quant=True,
+bnb_4bit_quant_type="nf4",
+bnb_4bit_compute_dtype=torch.float16 # bfloat16
+)
 
 print('tokenizer')
 tokenizer = AutoTokenizer.from_pretrained("LDCC/LDCC-SOLAR-10.7B", trust_remote_code=True)
@@ -17,6 +25,7 @@ model = AutoModelForCausalLM.from_pretrained(
     device_map="auto",
     return_dict=True,
     torch_dtype=torch.float16,
+    quantization_config = bnb_config
 )
 
 print('model_2')
